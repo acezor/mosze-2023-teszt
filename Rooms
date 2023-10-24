@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
+public class RoomData
+{
+    public string name;
+    public int X;
+    public int Y;
+}
+public class ControllRoom : MonoBehaviour
+{
+    public static ControllRoom pelda;
+    string aktpalya = "-----------";
+    RoomData Akt_RoomData;
+    Queue<RoomData> Akt_LoadRoomData = new Queue< RoomData>();
+    public List<Room> loadedRooms = new List<Room>();
+    bool LROOM = false;
+    void Awake()
+    {
+        pelda = this;
+    }
+
+    // Start is called before the first frame update
+    public bool IsRoomExist(int X, int Y)
+    {
+        return loadedRooms.Find(item = > item.x == X && item.y == Y) != null;
+    }
+}
